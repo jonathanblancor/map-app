@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NY Map - Jonathan Blanco</title>
+
+	<style type="text/css">
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		#map {height: 100%;}
+
+		header {
+			font-size: 1.1em;
+	    padding: 5px;
+	    background-color: lightblue;
+	    font-family: cursive;
+	    color: dimgrey;
+	    text-align: center;
+		}
+
+		nav {
+	    position: absolute;
+	    width: 22%;
+	    height: 100%;
+	    background-color: lightblue;
+	    z-index: 1;
+		}
+	</style>
+</head>
+<body>
+
+	<nav>
+		<header>Get familiarized with the MAIN attractions of Manhattan NY and its surroundings such as Restaurants, Hotels, subway stations, etc.</header>
+
+		<section></section>
+	</nav>
+
+	<div id="map"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<!--Knockout-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9N4xFQoRhPvxTpsbv-OGVIU7MLpHaYLI&v=3&callback=initMap"></script>
+</body>
+</html>
