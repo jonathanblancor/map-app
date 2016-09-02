@@ -11,34 +11,89 @@
 			height: 100%;
 			margin: 0;
 			padding: 0;
+			overflow: hidden;
 		}
 
 		#map {height: 100%;}
 
-		header {
-			font-size: 1.1em;
-	    padding: 5px;
-	    background-color: lightblue;
-	    font-family: cursive;
-	    color: dimgrey;
-	    text-align: center;
+		h3 {
+			font-size: 1.05em;
+		  font-family: cursive, sans-serif;
+		  color: lightslategray;
+		  text-align: center;
+		  margin-top: 6px;
+    	margin-bottom: 0;
 		}
 
 		nav {
 	    position: absolute;
-	    width: 22%;
+	    width: 301px;
 	    height: 100%;
 	    background-color: lightblue;
 	    z-index: 1;
 		}
+
+		hr {
+			width: 93%;
+    	border-style: groove;
+		}
+
+		section {
+			padding-left: 11px;
+	    line-height: 24px;
+		}
+
+		#menu-middle {
+			font-weight: 900;
+		}
+
+		#display-search-results {
+	    overflow-y: auto;
+	    height: 55.5%;
+		}
+
+		#display-search-results-list {
+			list-style: none;
+    	margin: 0;
+   	  padding: 0;
+		}
+
+		svg {
+	    width: 31px;
+	    position: absolute;
+	    z-index: 2;
+	    right: 0;
+		}
 	</style>
 </head>
 <body>
-
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+  </svg>
 	<nav>
-		<header>Get familiarized with the MAIN attractions of Manhattan NY and its surroundings such as Restaurants, Hotels, subway stations, etc.</header>
+		<h3>Get familiarized with the MAIN attractions of Manhattan NY and its surroundings such as restaurants, hotels, subway stations, etc.</h3><hr>
 
-		<section></section>
+		<section id="menu-middle">
+			<span>Search for </span>
+			<input id="search-box" type="text" placeholder="Ex: restaurants, hotels, subway stations..." size="35">
+			<br><span>From </span>
+			<select id="attraction-menu">
+				<option value="0">Statue of Liberty</option>
+				<option value="1">Madame Tussauds</option>
+				<option value="2">Empire State Building</option>
+				<option value="3">Madison Square Garden</option>
+				<option value="4">National September 11 Memorial & Museum</option>
+				<option value="5">American Museum of Natural History</option>
+				<option value="6">Times Square</option>
+				<option value="7">Metropolitan Museum of Art</option>
+				<option value="8">Radio City Music Hall</option>
+				<option value="9">St. Patrick's Cathedral</option>
+			</select>
+		</section>
+		<hr>
+		<section id="display-search-results">
+			<ul id="display-search-results-list"></ul>
+		</section>
 	</nav>
 
 	<div id="map"></div>
@@ -47,6 +102,6 @@
 	<script type="text/javascript" src="js/app.js"></script>
 	<!--Knockout-->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9N4xFQoRhPvxTpsbv-OGVIU7MLpHaYLI&v=3&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA9N4xFQoRhPvxTpsbv-OGVIU7MLpHaYLI&v=3&callback=initMap"></script>
 </body>
 </html>
