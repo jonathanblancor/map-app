@@ -91,6 +91,7 @@ function initMap() {
 	var searchBox = new google.maps.places.SearchBox(input, {bounds: attractionBounds});
 
 	var searchResultsList = $('#display-search-results-list');//Where results are displayed
+	var places = []; //Holds the places the user looked for
 
 	// Listen for the event fired when the user selects a prediction and retrieve
 	// more details for that place.
@@ -98,7 +99,7 @@ function initMap() {
 
 		searchResultsList.text('');//clear the search results list
 
-		var places = searchBox.getPlaces();
+		places = searchBox.getPlaces();
 
 		if (places.length === 0) { alert("No results found. Try another search."); return; }
 
@@ -174,8 +175,34 @@ function initMap() {
 		searchBox.setBounds(attractionBounds);
 	});
 
-	//Show or hide the menu
-	$("svg").click(function() {
-		$('nav').toggle(600);
-	})
+	var viewModel = {
+		menu: ko.observable(true), //menu is visible
+		toggleMenu: function() {
+
+			if (this.menu()) { this.menu(false); } //When clicked if is visible hide it
+			else { this.menu(true); } //When clicked if it is not visible show it
+		},
+		filterValue: ko.observable(''), //Location user is looking for
+		searchResults: ko.observable(), //Results from the filter to display
+		searchedPlaces: function() {
+
+			var stringResults = '';
+			//Go through the locations showing them or hiding them
+			for (var i = 0; i < locations.length; i++) {
+
+				var locationName = locations[i].title.toLowerCase();
+
+				if( locationName.search(this.filterValue()) === -1 ){//Hide locations
+					markers[i].setMap(null);
+				}
+				else { //Show locations and get their names
+					markers[i].setMap(map);
+					stringResults+=('<li><strong>'+locations[i].title+'</strong><li>');
+				}
+			}
+			this.searchResults(stringResults);//Display results
+		}
+	};
+
+	ko.applyBindings(viewModel);
 }
