@@ -6,5 +6,7 @@ An app that will get you familiarize with Manhattan NY
 2. Use index.html to start the app
 3. Select a location from the list to make it bounce and display information
 4. Click on a marker to make it bounce and display information
-4. Using the filter input box, search from the list of available locations. Results will appear on the map and on the list view
+5. Using the filter input box, search from the list of available locations. Results will appear on the map and on the list view
+
+Data provided by Wikipedia
 
