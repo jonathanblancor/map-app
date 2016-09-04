@@ -1,0 +1,58 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#map {height: 100%;}
+
+h3 {
+	font-size: 1.05em;
+  font-family: cursive, sans-serif;
+  color: lightslategray;
+  text-align: center;
+  margin-top: 6px;
+	margin-bottom: 0;
+}
+
+nav {
+  position: absolute;
+  width: 301px;
+  height: 100%;
+  background-color: lightblue;
+  z-index: 1;
+}
+
+hr {
+	width: 93%;
+	border-style: groove;
+}
+
+section {
+	padding-left: 11px;
+  line-height: 24px;
+}
+
+#menu-middle {
+	font-weight: 900;
+}
+
+#display-search-results {
+  overflow-y: auto;
+  height: 55.5%;
+}
+
+#display-search-results-list {
+	list-style: none;
+	margin: 0;
+	  padding: 0;
+}
+
+svg {
+  width: 31px;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+}
